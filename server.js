@@ -12,10 +12,8 @@ const db = knex({
   // Enter your own database information here based on what you created
   client: 'pg',
   connection: {
-    host : 'postgresql-cylindrical-05909',
-    user : 'postgres',
-    password : 'pula',
-    database : 'smart-brain'
+    host : process.env.DATABASE_URL,
+    ssl : true
   }
 });
 db.select('*').from('users').then(data => {
